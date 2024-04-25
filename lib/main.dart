@@ -15,15 +15,44 @@ class App extends StatelessWidget {
     return MaterialApp(
       // 모든 화면은 Scaffold를 가짐 (화면의 구조를 제공)
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello Flutter'),
-          centerTitle: true,
-          backgroundColor: Colors.blueGrey,
-        ),
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+          backgroundColor: Color(0xFF181818), // 커스텀 컬러
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Hey, Selena',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        Text(
+                          'Welcome back',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )),
     );
   }
 }
