@@ -2,28 +2,30 @@ import 'package:flutter/material.dart';
 
 void main() {
   // runApp()은 위젯을 파리미터로 받음
-  runApp(App());
+  runApp(const MyApp());
 }
 
 // 상속을 통해 클래스를 위젯으로 만듦 - build 메소드 필수
 // StatelessWidget은 화면에 무언가를 띄워주는 역할만을 함
 // Root Widget -> MaterialApp(구글) / CupertinoApp(iOS) 두 개 중 하나를 return 해야 함
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override // 부모 클래스에 있는 메소드를 override함
   // build 메소드는 Widget을 return함
   Widget build(BuildContext context) {
     return MaterialApp(
       // 모든 화면은 Scaffold를 가짐 (화면의 구조를 제공)
       home: Scaffold(
-          backgroundColor: Color(0xFF181818), // 커스텀 컬러
+          backgroundColor: const Color(0xFF181818), // 커스텀 컬러
           body: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Row(
@@ -32,7 +34,7 @@ class App extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
+                        const Text(
                           'Hey, Selena',
                           style: TextStyle(
                             color: Colors.white,
@@ -51,7 +53,7 @@ class App extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Text(
@@ -61,7 +63,7 @@ class App extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                Text(
+                const Text(
                   '\$5 194 482',
                   style: TextStyle(
                     color: Colors.white,
@@ -69,7 +71,7 @@ class App extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -79,7 +81,7 @@ class App extends StatelessWidget {
                         color: Colors.amber,
                         borderRadius: BorderRadius.circular(45),
                       ),
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 15,
                           horizontal: 40,
