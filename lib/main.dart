@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
                     ),
                     Button(
                       text: 'Request',
-                      bgColor: Color(0xFF1F2123),
+                      bgColor: Color(0xFF202123),
                       textColor: Colors.white,
                     ),
                   ],
@@ -114,8 +114,10 @@ class MyApp extends StatelessWidget {
                   height: 20,
                 ),
                 Container(
+                    // 컨테이너 밖으로 넘치는 부분(overflow) 잘라내기
+                    clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF1F2123),
+                      color: const Color(0xFF202123),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
@@ -124,6 +126,7 @@ class MyApp extends StatelessWidget {
                         vertical: 20,
                       ),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +140,7 @@ class MyApp extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(
-                                height: 5,
+                                height: 15,
                               ),
                               Row(
                                 children: [
@@ -159,9 +162,22 @@ class MyApp extends StatelessWidget {
                                     ),
                                   ),
                                 ],
-                              )
+                              ),
                             ],
-                          )
+                          ),
+                          // 부모 위젯에 영향 주지 않고 크기 키우기
+                          Transform.scale(
+                            scale: 2,
+                            // 위젯 x, y좌표 지정
+                            child: Transform.translate(
+                              offset: const Offset(-2, 10),
+                              child: const Icon(
+                                Icons.euro_rounded,
+                                color: Colors.white,
+                                size: 70,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ))
