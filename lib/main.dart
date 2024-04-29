@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/widgets/button.dart';
+import 'package:toonflix/widgets/currency_card.dart';
 
 void main() {
   // runApp()은 위젯을 파리미터로 받음
@@ -18,8 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // 모든 화면은 Scaffold를 가짐 (화면의 구조를 제공)
       home: Scaffold(
-          backgroundColor: const Color(0xFF181818), // 커스텀 컬러
-          body: Padding(
+        backgroundColor: const Color(0xFF181818), // 커스텀 컬러
+        // 스크롤 가능한 위젯
+        body: SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 80,
+                  height: 50,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
                 Text(
                   'Total Banlance',
@@ -91,7 +94,7 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,77 +116,38 @@ class MyApp extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                    // 컨테이너 밖으로 넘치는 부분(overflow) 잘라내기
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF202123),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 25,
-                        vertical: 20,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Euro',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    '6 428',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'EUR',
-                                    style: TextStyle(
-                                      color: Colors.white.withOpacity(0.8),
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          // 부모 위젯에 영향 주지 않고 크기 키우기
-                          Transform.scale(
-                            scale: 2,
-                            // 위젯 x, y좌표 지정
-                            child: Transform.translate(
-                              offset: const Offset(-2, 10),
-                              child: const Icon(
-                                Icons.euro_rounded,
-                                color: Colors.white,
-                                size: 70,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ))
+                const CurrencyCard(
+                  name: 'Euro',
+                  amount: '6 428',
+                  code: 'EUR',
+                  icon: Icons.euro_symbol_rounded,
+                  isInverted: false,
+                ),
+                Transform.translate(
+                  offset: const Offset(0, -18),
+                  child: const CurrencyCard(
+                    name: 'Dollar',
+                    amount: '55 622',
+                    code: 'USD',
+                    icon: Icons.attach_money_rounded,
+                    isInverted: true,
+                  ),
+                ),
+                Transform.translate(
+                  offset: const Offset(0, -36),
+                  child: const CurrencyCard(
+                    name: 'Bitcoin',
+                    amount: '9 785',
+                    code: 'BTC',
+                    icon: Icons.currency_bitcoin_rounded,
+                    isInverted: false,
+                  ),
+                ),
               ],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final Color bgColor;
-  final Color textColor;
+  final Color bgColor, textColor;
 
   const Button({
     super.key,
