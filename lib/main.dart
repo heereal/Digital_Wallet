@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/widgets/button.dart';
 
 void main() {
   // runApp()은 위젯을 파리미터로 받음
@@ -74,28 +75,21 @@ class MyApp extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                Row(
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 40,
-                        ),
-                        child: Text(
-                          'Transfer',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
+                    Button(
+                      text: 'Transfer',
+                      bgColor: Color(0xFFF1B33B),
+                      textColor: Colors.black,
+                    ),
+                    Button(
+                      text: 'Request',
+                      bgColor: Color(0xFF1F2123),
+                      textColor: Colors.white,
                     ),
                   ],
-                )
+                ),
               ],
             ),
           )),
