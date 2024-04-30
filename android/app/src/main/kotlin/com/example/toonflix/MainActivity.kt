@@ -1,4 +1,4 @@
-package com.example.toonflix
+package com.example.digital_wallet
 
 import io.flutter.embedding.android.FlutterActivity
 

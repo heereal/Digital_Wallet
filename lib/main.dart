@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/widgets/button.dart';
-import 'package:toonflix/widgets/currency_card.dart';
+import 'package:digital_wallet/widgets/button.dart';
+import 'package:digital_wallet/widgets/currency_card.dart';
 
 void main() {
   // runApp()은 위젯을 파리미터로 받음

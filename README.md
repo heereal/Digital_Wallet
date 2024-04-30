@@ -1,4 +1,4 @@
-# toonflix
+# digital_wallet
 
 A new Flutter project.
 
